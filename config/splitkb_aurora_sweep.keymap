@@ -18,6 +18,8 @@
 #define LAYER_7 7
 #define LAYER_8 8
 #define LAYER_9 9
+#define LAYER_10 10
+#define LAYER_11 11
 
 &mt {
   //  flavor = "tap-preferred";
@@ -98,7 +100,7 @@ behaviors {
             bindings = <
                 &kp ESC &trans &trans &kp F4 &trans    &sten_on &trans &kp UP &trans &kp DEL
                 &kp TAB &trans &trans &kp LGUI &trans    &trans &kp LEFT &kp DOWN &kp RIGHT &trans
-                &trans &kp LCTRL &trans &trans &trans    &trans &kp HOME &trans &kp END &to 9
+                &trans &kp LCTRL &trans &trans &trans    &trans &kp HOME &trans &kp END &to 10
                     &kp LSHIFT &kp LALT    &sten_off &trans
             >;
         };
@@ -141,18 +143,36 @@ behaviors {
 
         layer_8 { /* MseMvmnt */
             bindings = <
-                &trans &trans &trans &trans &trans    &trans &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN &trans
-                &mkp MCLK &trans &mkp RCLK &mkp LCLK &trans    &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans
-                &trans &trans &trans &trans &trans    &trans &msc SCRL_LEFT &trans &msc SCRL_RIGHT &trans
-                    &trans &trans    &trans &trans
+                &none &none &none &none &none    &none &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN &none
+                &mkp MCLK &none &mkp RCLK &mkp LCLK &none    &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none
+                &none &none &none &none &none    &none &msc SCRL_LEFT &none &msc SCRL_RIGHT &none
+                    &mo 9 &none    &none &none
             >;
         };
 
-        layer_9 { /* Gaming */
+        layer_9 { /* MseMvmnt Fast */
             bindings = <
-                &kp ESC &kp Q &kp W &kp E &kp R    &trans &mkp LCLK &mmv MOVE_UP &mkp RCLK &trans
-                &kp TAB &kp A &kp S &kp D &kp F    &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans
-                &kp LSHIFT &trans &trans &trans &trans    &trans &msc SCRL_UP &mkp MCLK &msc SCRL_DOWN &to 0
+                &none &none &none &none &none    &none &msc MOVE_Y(15) &mmv MOVE_Y(-900) &msc MOVE_Y(-15) &none
+                &mkp MCLK &none &mkp RCLK &mkp LCLK &none    &none &mmv MOVE_X(-900) &mmv MOVE_Y(900) &mmv MOVE_X(900) &none
+                &none &none &none &none &none    &none &msc MOVE_X(-15) &none &msc MOVE_X(15) &none
+                    &trans &none    &none &none
+            >;
+        };
+
+        layer_10 { /* Gaming */
+            bindings = <
+                &kp ESC &kp Q &kp W &kp E &kp R    &none &mkp LCLK &mmv MOVE_UP &mkp RCLK &none
+                &kp TAB &kp A &kp S &kp D &kp F    &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none
+                &kp LSHIFT &none &none &none &none    &none &msc SCRL_UP &mkp MCLK &msc SCRL_DOWN &to 0
+                    &mo 11 &kp SPACE    &mkp LCLK &mkp RCLK
+            >;
+        };
+
+        layer_11 { /* Gaming Fast */
+            bindings = <
+                &kp ESC &kp Q &kp W &kp E &kp R    &none &mkp LCLK &mmv MOVE_Y(-900) &mkp RCLK &none
+                &kp TAB &kp A &kp S &kp D &kp F    &none &mmv MOVE_X(-900) &mmv MOVE_Y(900) &mmv MOVE_X(900) &none
+                &kp LSHIFT &none &none &none &none    &none &msc MOVE_Y(15) &mkp MCLK &msc MOVE_Y(-15) &to 0
                     &trans &kp SPACE    &mkp LCLK &mkp RCLK
             >;
         };
